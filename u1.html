@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.15.2/css/all.css"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      header {
+        background: black;
+        color: white;
+        font-size: 24px;
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+      }
+      a {
+        margin: 15px;
+      }
+      #burger {
+        display: none;
+      }
+      @media screen and (max-width: 730px) {
+        header {
+          font-size: 20px;
+          padding: 5px;
+          position: relative;
+        }
+        #burger {
+          display: block;
+        }
+        body {
+          overflow-x: hidden;
+        }
+        #menu {
+          display: flex;
+          position: absolute;
+          top: 100%;
+          right: -100%;
+          flex-direction: column;
+          background: black;
+          transition: right 0.6s;
+          border-radius: 0 0 0 10px;
+        }
+        a {
+          margin: 5px 10px;
+        }
+      }
+    </style>
+    <header>
+      <i class="fas fa-skull"></i>
+      <nav id="menu">
+        <a>магазин</a>
+        <a>корзина</a>
+        <a>список</a>
+        <a>история</a>
+      </nav>
+      <i class="fad fa-bars" id="burger"></i>
+    </header>
+  </body>
+  <script>
+    let burger = document.getElementById("burger");
+    let menu = document.getElementById("menu");
+    let i = 0;
+
+    burger.addEventListener("click", open);
+
+    function open() {
+      i++;
+      if (i % 2 == 0) {
+        menu.style.right = "-100%";
+      } else {
+        menu.style.right = "0%";
+      }
+    }
+  </script>
+</html>
