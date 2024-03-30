@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+  
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.15.2/css/all.css"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    main {
+      display: flex;
+      align-items: center;
+      background: rgb(59, 79, 123);
+    }
+    nav {
+      overflow-x: hidden;
+    }
+    div {
+      display: flex;
+      /* transform: translateX(-50%); */
+      transition: all 0.5s;
+    }
+    img {
+      /* width: 50%; */
+      aspect-ratio: 1/1;
+      object-fit: cover;
+    }
+    i {
+      padding: 10px;
+      font-size: 40px;
+      color: rgb(223, 214, 116);
+      cursor: pointer;
+    }
+  </style>
+  <body>
+    <h1>rabotaet</h1>
+    <main>
+      <i class="fad fa-chevron-double-left" id="arrowLeft"></i>
+      <nav>
+        <div id="karusel">
+          <img src="https://sharsochi.ru/d/902732.jpg" />
+          <img
+            src="https://i.pinimg.com/originals/d3/7a/fc/d37afceb2c77811c1c8bac903503e7de.jpg"
+          />
+          <img src="https://cdn1.ozone.ru/s3/multimedia-7/6458599651.jpg" />
+          <img
+            src="https://klike.net/uploads/posts/2022-08/1661873339_j-57.jpg"
+          />
+          <img
+            src="https://w-dog.ru/wallpapers/6/19/414266986139930/gadkij-ya-minony-zheltye-belyj-fon.jpg"
+          />
+        </div>
+      </nav>
+      <i class="fad fa-chevron-double-right" id="arrowRight"></i>
+    </main>
+    <script>
+      let arrowLeft = document.getElementById("arrowLeft");
+      let arrowRight = document.getElementById("arrowRight");
+      let karusel = document.getElementById("karusel");
+
+      let karuselElem = 3;
+      let width = 100 / karuselElem;
+      let item = karusel.children.length - karuselElem;
+      let current = 0;
+
+      for (const i of karusel.children) {
+        i.style.width = width + "%";
+      }
+
+      arrowRight.addEventListener("click", clickRight);
+      function clickRight() {
+        current += 1;
+        if (current > item) {
+          current = 0;
+        }
+        karusel.style.transform = `translateX(-${width * current}%)`;
+      }
+
+      arrowLeft.addEventListener("click", clickLeft);
+      function clickLeft() {
+        current -= 1;
+        if (current < 0) {
+          current = item;
+        }
+        karusel.style.transform = `translateX(-${width * current}%)`;
+      }
+    </script>
+  </body> 
+</html>
